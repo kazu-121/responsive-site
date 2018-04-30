@@ -1,0 +1,161 @@
+@import "compass";
+@import url(https://fonts.googleapis.com/css?family=Abel);
+
+$baseFontFamily :"游ゴシック", YuGothic, "メイリオ",Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+$baseColor: #fdfcf6;
+$subColor: #bea300;
+$keyColor: #14c0c9;
+$fontColor: #4c4c4c;
+
+html{ font-size: 62.5%; }
+
+body{
+  color: $fontColor;
+  font-size: 1.4rem;
+  font-family:$baseFontFamily;
+  line-height:1.6;
+  background-color: $baseColor;
+}
+
+a {
+  @include link-colors($keyColor, darken($keyColor, 10%), lighten($keyColor, 5%), darken($keyColor, 10%));
+  text-decoration: none;
+}
+
+.text-center {
+  text-align: center;
+}
+  
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.abel {
+  font-family: 'Abel', sans-serif;
+}
+
+@media (min-width: 769px) {
+ a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+header {
+ .top {
+  background-image: url(../images/top.jpg);
+  height: 250px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+@media (min-width: 769px) {
+  .top {
+    height: 500px;
+  }
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+}
+
+section {
+  padding: 60px 0;
+  .container {
+    width: 90%;
+    @extend .block-center;
+  }
+  h2 {
+    @extend .abel;
+    font-size: 3.2rem;
+  }
+}
+
+#skills {
+  background-color: $subColor;
+  .container {
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(column);
+  }
+  h2 {
+    color: $baseColor;
+    margin-bottom: 60px;
+  }
+  .skill-box {
+    @include flex(1);
+    margin: 10px 0;
+    padding: 20px;
+    background-color: $baseColor;
+    @include border-radius(4px);
+    @include box-sizing(border-box);
+  }
+  i {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+    padding-top: 15px;
+    background-color: $keyColor;
+    font-size: 4.5rem;
+    color: #FFF;
+    text-align: center;
+    @include box-sizing(border-box);
+    @include border-radius(50%);
+    @extend .block-center;
+  }
+  h3 {
+    @extend .abel;
+    color: $keyColor;
+    margin-bottom:10px;
+    font-size: 2.4rem;
+    font-weight: bold;
+  }
+} // skill
+
+@media (min-width: 769px) {
+  
+#skills {
+    .container {
+      @include flex-direction(row);
+      justify-content: space-between;
+    }
+    .skill-box {
+      margin: 0 10px;
+    }
+  }
+} // min-width: 769
+
+// モバイル版のコンタクトエリア
+#contact {
+  p {
+    text-align: center;
+  }
+   
+ a {
+      display: inline-block;
+      width: 50px;
+      height: 25px;
+      color: #FFF;
+      background-color: $keyColor;
+      @include border-radius(5px);
+      text-align: center;
+    }
+  } // #contact
+
+@media (min-width: 769px) { // PC版のコンタクトエリア
+
+ #contact {
+      a{
+        &:hover {
+          background-color: darken($keyColor, 10%);
+                }
+           }
+     }
+  }
